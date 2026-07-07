@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario Jones II — MIS · Prairie View A&M University</title>
+<meta name="description" content="Portfolio of Mario Jones II, Management Information Systems major at Prairie View A&M University. IT operations, business systems, data analytics, and software projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#12332B;
+    --pine-soft:#1E4A3E;
+    --paper:#F7F6F1;
+    --paper-deep:#EFEDE4;
+    --ink:#1A1C1A;
+    --ink-soft:#4C554F;
+    --posted:#2FA36B;
+    --rule:#D8D5C8;
+    --mono:'IBM Plex Mono',monospace;
+    --sans:'IBM Plex Sans',sans-serif;
+    --slab:'Zilla Slab',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, rgba(18,51,43,0.045) 31px, rgba(18,51,43,0.045) 32px);
+  }
+  a{color:var(--pine);text-decoration-thickness:1px;text-underline-offset:3px}
+  a:hover{color:var(--posted)}
+  :focus-visible{outline:2px solid var(--posted);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* ============ NAV ============ */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,246,241,0.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1040px;margin:0 auto}
+  .nav-brand{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;color:var(--pine);text-decoration:none;font-weight:500}
+  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--pine)}
+  @media(max-width:640px){.nav-links{gap:16px}.nav-links li:nth-child(n+4){display:none}}
+
+  /* ============ HERO / STATEMENT ============ */
+  header{padding:84px 0 64px;border-bottom:2px solid var(--pine)}
+  .acct-line{
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;
+    color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:36px;
+  }
+  .acct-line .posted{color:var(--posted);font-weight:500}
+  h1{
+    font-family:var(--slab);font-weight:700;
+    font-size:clamp(2.6rem,6.5vw,4.4rem);line-height:1.04;
+    color:var(--pine);max-width:17ch;
+  }
+  h1 em{font-style:normal;color:var(--posted)}
+  .hero-sub{margin-top:22px;font-size:1.1rem;color:var(--ink-soft);max-width:58ch}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:0;margin-top:48px;border:1px solid var(--rule);background:#fff;
+  }
+  .stat{padding:18px 20px;border-right:1px solid var(--rule)}
+  .stat:last-child{border-right:none}
+  @media(max-width:640px){.stat{border-right:none;border-bottom:1px solid var(--rule)}.stat:last-child{border-bottom:none}}
+  .stat .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .stat .v{font-family:var(--slab);font-weight:600;font-size:1.15rem;color:var(--pine);margin-top:2px}
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-weight:600;font-size:.92rem;text-decoration:none;
+    padding:12px 22px;border-radius:3px;transition:background .15s,color .15s;
+  }
+  .btn-primary{background:var(--pine);color:var(--paper)}
+  .btn-primary:hover{background:var(--pine-soft);color:#fff}
+  .btn-ghost{border:1px solid var(--pine);color:var(--pine)}
+  .btn-ghost:hover{background:var(--pine);color:var(--paper)}
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section{padding:72px 0}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--pine);padding-bottom:10px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .sec-head h2{font-family:var(--slab);font-weight:700;font-size:1.9rem;color:var(--pine)}
+  .sec-head .folio{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--ink-soft)}
+
+  /* ============ PROJECT ENTRIES ============ */
+  .entry{
+    display:grid;grid-template-columns:120px 1fr 380px;gap:32px;
+    padding:40px 0;border-bottom:1px solid var(--rule);align-items:start;
+  }
+  @media(max-width:900px){.entry{grid-template-columns:1fr;gap:20px}}
+  .entry-meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);line-height:2}
+  .entry-no{color:var(--posted);font-weight:500}
+  .entry h3{font-family:var(--slab);font-weight:600;font-size:1.45rem;color:var(--pine);margin-bottom:8px}
+  .entry p{color:var(--ink-soft);font-size:.97rem;max-width:52ch}
+  .entry .impact{margin-top:12px;color:var(--ink);font-size:.95rem}
+  .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:.72rem;padding:4px 10px;border:1px solid var(--rule);background:#fff;border-radius:2px;color:var(--pine)}
+  .entry-links{margin-top:16px;font-size:.9rem;display:flex;gap:18px}
+  /* Screenshot frame */
+  .shot{
+    background:#fff;border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+    box-shadow:0 1px 0 var(--rule);
+  }
+  .shot img{display:block;width:100%;height:auto}
+  .shot-placeholder{
+    aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;background:repeating-linear-gradient(45deg,var(--paper-deep),var(--paper-deep) 12px,#fff 12px,#fff 24px);
+    color:var(--ink-soft);font-family:var(--mono);font-size:.75rem;text-align:center;padding:16px;
+  }
+  .shot-caption{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);padding:8px 12px;border-top:1px solid var(--rule)}
+
+  /* ============ EXPERIENCE LEDGER ============ */
+  .xp{border-bottom:1px solid var(--rule);padding:28px 0;display:grid;grid-template-columns:170px 1fr;gap:28px}
+  @media(max-width:700px){.xp{grid-template-columns:1fr;gap:8px}}
+  .xp-date{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);padding-top:4px}
+  .xp h3{font-family:var(--slab);font-weight:600;font-size:1.2rem;color:var(--pine)}
+  .xp .org{font-size:.92rem;color:var(--ink-soft);font-weight:500;margin-bottom:8px}
+  .xp ul{margin:8px 0 0 18px;color:var(--ink-soft);font-size:.95rem}
+  .xp li{margin-bottom:6px}
+
+  /* ============ SKILLS ============ */
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .skill-col{background:#fff;padding:24px}
+  .skill-col h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--posted);margin-bottom:14px}
+  .skill-col ul{list-style:none}
+  .skill-col li{padding:7px 0;border-bottom:1px dashed var(--rule);font-size:.93rem;color:var(--ink)}
+  .skill-col li:last-child{border-bottom:none}
+
+  /* ============ GALLERY ============ */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:28px}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--pine);color:var(--paper);padding:72px 0 40px;margin-top:40px}
+  footer h2{font-family:var(--slab);font-size:2.2rem;font-weight:700;max-width:20ch}
+  footer p{margin-top:14px;color:#BCCFC6;max-width:52ch}
+  .foot-links{margin-top:28px;display:flex;gap:24px;flex-wrap:wrap;font-family:var(--mono);font-size:.85rem}
+  .foot-links a{color:var(--paper)}
+  .foot-links a:hover{color:var(--posted)}
+  .foot-close{margin-top:56px;padding-top:18px;border-top:1px solid rgba(247,246,241,.2);font-family:var(--mono);font-size:.72rem;color:#8FA79D;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">M. JONES II / LEDGER</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <div class="acct-line">
+      <span>ACCOUNT HOLDER: MARIO JONES II</span>
+      <span>PRAIRIE VIEW A&amp;M UNIVERSITY · B.B.A. MIS · GPA 3.3 · MAY 2027</span>
+      <span class="posted">STATUS: OPEN TO OPPORTUNITIES ●</span>
+    </div>
+    <h1>Business runs on systems. <em>I build both.</em></h1>
+    <p class="hero-sub">
+      I'm a Management Information Systems major working at the intersection of IT
+      operations, financial operations, and software — from leading a SharePoint &amp; Teams
+      hub rollout for PVAMU's College of Business, to building TensorFlow analytics
+      pipelines, to founding a personal-development platform for college students.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><div class="k">Current Role</div><div class="v">IT Operations Intern</div></div>
+      <div class="stat"><div class="k">Leadership</div><div class="v">President, Beta Alpha Psi</div></div>
+      <div class="stat"><div class="k">Founder</div><div class="v">LOCKD In (pre-launch)</div></div>
+      <div class="stat"><div class="k">Certified</div><div class="v">RMA Credit Essentials</div></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects">View the entries →</a>
+      <a class="btn btn-ghost" href="https://github.com/parbii">GitHub / parbii</a>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== PROJECTS ==================== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Project Entries</h2>
+      <span class="folio">FOLIO 01 · POSTED &amp; VERIFIED</span>
+    </div>
+
+    <!-- JE-001: SharePoint & Teams Hub -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-001</div>
+        <div>JAN 2026–PRESENT</div>
+        <div>PVAMU · IT OPS</div>
+      </div>
+      <div>
+        <h3>College of Business Digital Hub — SharePoint &amp; Teams</h3>
+        <p>Identified a campus-wide visibility gap by scraping the school's event site
+        with Python — surfacing organizations hosting events that never reached most
+        students. Led the rollout of a centralized SharePoint &amp; Teams hub for posting
+        and tracking organization events, applying the full SDLC across design, testing,
+        and deployment.</p>
+        <p class="impact">Built to WCAG AA accessibility standards and PVAMU brand
+        compliance ahead of college-wide deployment, broadening equitable access to
+        opportunities.</p>
+        <div class="tags">
+          <span class="tag">SharePoint</span><span class="tag">Python</span>
+          <span class="tag">SDLC</span><span class="tag">WCAG AA</span><span class="tag">Microsoft 365</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/sharepoint-home.png" alt="PVAMU College of Business intranet homepage showing the events calendar, CoB Chat department cards, and student resource links">
+        <figcaption class="shot-caption">FIG 001 — Intranet homepage, College of Business</figcaption>
+      </figure>
+    </article>
+
+    <!-- JE-002: LOCKD In -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-002</div>
+        <div>2025–PRESENT</div>
+        <div>FOUNDER</div>
+      </div>
+      <div>
+        <h3>LOCKD In — Personal Development Platform</h3>
+        <p>Founder of a platform built for college students to lock in on their goals —
+        combining goal and habit tracking, guided mindset modules, streaks, and community
+        service event hubs in one place. Built a working MVP in VS Code with Firebase,
+        owning product direction, design, and the build; full production kicks off
+        fall 2026.</p>
+        <div class="tags">
+          <span class="tag">Product Design</span><span class="tag">Full-Stack</span>
+          <span class="tag">Firebase</span><span class="tag">Entrepreneurship</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/lockdin-app.png" alt="LOCKD In app dashboard showing mindset module progress, daily habit tracking with streaks, and goal completion bars">
+        <figcaption class="shot-caption">FIG 002 — LOCKD In dashboard, pre-launch build</figcaption>
+      </figure>
+    </article>
+
+    <!-- JE-003: Predictive Analytics Pipeline -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-003</div>
+        <div>JAN 2026–PRESENT</div>
+        <div>DATA · ML</div>
+      </div>
+      <div>
+        <h3>Predictive Analytics Pipeline</h3>
+        <p>Engineered an automated end-to-end Python pipeline that validates live data
+        via external APIs and feeds a TensorFlow regression model — improving predictive
+        precision by 15%. The reporting layer applies all four types of analytics —
+        descriptive, diagnostic, predictive, and prescriptive — to turn raw data into
+        decision-ready recommendations.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span>
+          <span class="tag">REST APIs</span><span class="tag">Data Analytics</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/analytics-dashboard.png" alt="Analytics intelligence dashboard with descriptive, diagnostic, predictive, and prescriptive tabs, model win probability, and player statistics visualizations">
+        <figcaption class="shot-caption">FIG 003 — Pipeline reporting layer, four-analytics methodology</figcaption>
+      </figure>
+    </article>
+
+    <!-- JE-004: Panthers Invent -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-004</div>
+        <div>SEP 2025</div>
+        <div>COMPETITION</div>
+      </div>
+      <div>
+        <h3>Sandia Labs Panthers Invent '25 — AI + IoT</h3>
+        <p>Led a team through a 72-hour sprint, personally executing the technical
+        prototyping of an AI + IoT monitoring system from scratch with Python,
+        Raspberry Pi, and Arduino — applying machine learning models and anomaly
+        detection algorithms to enable predictive analytics, then delivering the
+        executive-level presentation.</p>
+        <p class="impact">Secured a 3rd-place finish.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Raspberry Pi</span>
+          <span class="tag">Arduino</span><span class="tag">Anomaly Detection</span>
+          <span class="tag">Team Leadership</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/panthers-invent.jpg" alt="Mario's team presenting their AI and IoT monitoring solution at the Panthers Invent 2025 case competition">
+        <figcaption class="shot-caption">FIG 004 — Panthers Invent '25, 3rd place</figcaption>
+      </figure>
+    </article>
+
+    <!-- JE-005: Portfolio -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-005</div>
+        <div>2026</div>
+        <div>WEB DEV</div>
+      </div>
+      <div>
+        <h3>Portfolio Site &amp; Ledger Design System</h3>
+        <p>This site — hand-coded HTML/CSS deployed on GitHub Pages, built around a
+        custom "ledger" design system that reflects my accounting and financial
+        operations background. No frameworks, no templates.</p>
+        <div class="tags">
+          <span class="tag">HTML/CSS</span><span class="tag">GitHub Pages</span>
+          <span class="tag">Design Systems</span><span class="tag">Responsive</span>
+        </div>
+        <div class="entry-links">
+          <a href="https://github.com/parbii/parbii.github.io">View source →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience" style="background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Experience Postings</h2>
+      <span class="folio">FOLIO 02 · CHRONOLOGICAL</span>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">JAN 2026 — PRESENT</div>
+      <div>
+        <h3>IT Operations Intern</h3>
+        <div class="org">PVAMU College of Business · Prairie View, TX</div>
+        <ul>
+          <li>Surfaced a campus-wide event visibility gap by scraping the school's event site with Python, then led the SharePoint &amp; Teams hub rollout that closed it (see JE-001).</li>
+          <li>Configured secure access provisioning and administered systems access for student leadership.</li>
+          <li>Provide hands-on IT support across College of Business facilities — classroom AV verification, software deployment, and endpoint readiness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">JUL 2025</div>
+      <div>
+        <h3>Project Intern — Business Analysis</h3>
+        <div class="org">Kevin Kelley Concepts · Dallas, TX</div>
+        <ul>
+          <li>Synthesized market feasibility, demographic, and zoning research into a data-backed business case, reporting directly to the leadership board.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">JAN 2019 — PRESENT</div>
+      <div>
+        <h3>Financial Operations Assistant</h3>
+        <div class="org">Jones &amp; Jones Strategic Consulting · Frisco, TX</div>
+        <ul>
+          <li>Attained 100% audit-readiness across consulting engagements by managing complex financial records and maintaining regulatory and compliance standards.</li>
+          <li>Reduced annual tax-reporting turnaround from 3 days to under 4 hours by architecting custom Excel models that automated data reconciliation and compliance reporting.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">ONGOING</div>
+      <div>
+        <h3>Campus Leadership</h3>
+        <div class="org">Prairie View A&amp;M University</div>
+        <ul>
+          <li>President, Beta Alpha Psi — leading the honors organization for accounting, finance, and information systems students.</li>
+          <li>Director of IT, PVAMU Strategy Group · Member, Dean's Student Advisory Council.</li>
+          <li>Active in AIS, NSBE, ColorStack, and NSLS.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Skills on the Books</h2>
+      <span class="folio">FOLIO 03 · AUDITED</span>
+    </div>
+    <div class="skill-grid" style="margin-top:28px">
+      <div class="skill-col">
+        <h3>Languages</h3>
+        <ul><li>Python</li><li>Java</li><li>C#</li><li>SQL</li><li>HTML / CSS</li></ul>
+      </div>
+      <div class="skill-col">
+        <h3>Data &amp; Analytics</h3>
+        <ul><li>TensorFlow</li><li>Power BI</li><li>Tableau</li><li>Excel (advanced modeling)</li></ul>
+      </div>
+      <div class="skill-col">
+        <h3>Platforms &amp; Tools</h3>
+        <ul><li>Microsoft 365 &amp; SharePoint</li><li>Teams</li><li>Git &amp; GitHub</li><li>Firebase</li><li>Google Cloud</li></ul>
+      </div>
+      <div class="skill-col">
+        <h3>Business &amp; Concepts</h3>
+        <ul><li>SDLC</li><li>ERP fundamentals</li><li>Networking</li><li>Credit analysis (RMA certified)</li><li>Compliance &amp; audit readiness</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CREDENTIALS & EXHIBITS ==================== -->
+<section id="credentials" style="background:#fff;border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Supporting Documents</h2>
+      <span class="folio">FOLIO 04 · EXHIBITS</span>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="images/rma-certificate.png" alt="RMA by ProSight Credit Essentials Certificate awarded to Mario Jones, dated May 31, 2026">
+        <figcaption class="shot-caption">EXHIBIT A — RMA Credit Essentials Certificate · May 2026</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/phillips66.jpg" alt="Mario presenting at the Phillips 66 BEN Case Competition 2025">
+        <figcaption class="shot-caption">EXHIBIT B — Phillips 66 BEN Case Competition '25 · Refinery capital investment analysis across upstream, midstream &amp; downstream operations</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/tex-e.jpg" alt="Mario at the TEX-E Bootcamp on sustainable energy innovation and entrepreneurship">
+        <figcaption class="shot-caption">EXHIBIT C — TEX-E Bootcamp '25 · Disciplined Entrepreneurship with MIT faculty &amp; Greentown Labs; pitched a climate-tech solution</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/True-digital-marketing.jpeg" alt="Mario at the True Digital Marketing C.A.S.E. Competition final presentation">
+        <figcaption class="shot-caption">EXHIBIT D — True Digital Marketing C.A.S.E. Competition '25 · Business development lifecycle, venture pitch to industry professionals</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's balance the books.</h2>
+    <p>I'm targeting IT and business operations analyst roles — and open to internships,
+    projects, and conversations before May 2027.</p>
+    <div class="foot-links">
+      <a href="mailto:mario.jonesii@jjscllc.com">EMAIL</a>
+      <a href="https://github.com/parbii">GITHUB</a>
+      <a href="https://linkedin.com/in/mario-jones-ii">LINKEDIN</a>
+      <a href="resume.pdf">RESUME (PDF)</a>
+    </div>
+    <div class="foot-close">
+      <span>MARIO JONES II · PRAIRIE VIEW A&amp;M UNIVERSITY · MIS '27</span>
+      <span>LEDGER CLOSED &amp; RECONCILED · 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
