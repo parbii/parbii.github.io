@@ -9,19 +9,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --pine:#12332B;
-    --pine-soft:#1E4A3E;
-    --paper:#F7F6F1;
-    --paper-deep:#EFEDE4;
-    --ink:#1A1C1A;
-    --ink-soft:#4C554F;
-    --posted:#2FA36B;
-    --rule:#D8D5C8;
-    --mono:'IBM Plex Mono',monospace;
-    --sans:'IBM Plex Sans',sans-serif;
-    --slab:'Zilla Slab',serif;
-  }
+  :root {
+  /* 60% Canvas - Soft, premium bone background */
+  --paper: #F8F6F2;
+  --paper-deep: #EFECE6;
+
+  /* 30% Structure - Sharp, high-contrast dark lines and headers */
+  --ink: #1A1A1A;
+  --ink-soft: #555555;
+  --rule: #1A1A1A; /* Crucial for Neo-Brutalist thick borders */
+
+  /* 10% Accent - Deep, interactive digital indigo */
+  --pine: #4F46E5;
+  --pine-soft: #818CF8;
+  --posted: #4F46E5;
+
+  /* Typography (Keep your excellent font choices!) */
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+  --slab: 'Zilla Slab', serif;
+}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){
