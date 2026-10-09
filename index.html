@@ -131,6 +131,10 @@
     box-shadow:0 1px 0 var(--rule);
   }
   .shot img{display:block;width:100%;height:auto}
+  /* Video in a media slot: center-crop portrait clips to match landscape frames */
+  .shot video{display:block;width:100%;height:auto}
+  .shot .video-frame{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+  .shot .video-frame video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:auto;min-height:100%}
   .shot-placeholder{
     aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:6px;background:repeating-linear-gradient(45deg,var(--paper-deep),var(--paper-deep) 12px,#fff 12px,#fff 24px);
@@ -201,7 +205,7 @@
       pipelines, to founding a personal-development platform for college students.
     </p>
     <div class="hero-stats">
-      <div class="stat"><div class="k">Current Role</div><div class="v">Operations Intern</div></div>
+      <div class="stat"><div class="k">Current Role</div><div class="v">Google Gemini Ambassador</div></div>
       <div class="stat"><div class="k">Leadership</div><div class="v">President, Beta Alpha Psi</div></div>
       <div class="stat"><div class="k">Founder</div><div class="v">LOCKD In (pre-launch)</div></div>
       <div class="stat"><div class="k">Certified</div><div class="v">RMA Credit Essentials</div></div>
@@ -274,11 +278,11 @@
         <div>DATA · ML</div>
       </div>
       <div>
-        <h3>Predictive Analytics Pipeline</h3>
-        <p>Engineered an automated end-to-end Python pipeline that validates live data via external APIs and feeds a TensorFlow regression model, improving predictive precision by 15%. The reporting layer applies all four types of analytics: descriptive, diagnostic, predictive, and prescriptive, to turn raw data into decision-ready recommendations.</p>
+        <h3>Predictive NBA Analytics Pipeline</h3>
+        <p>Engineered an automated end-to-end Python pipeline (built on Claude Code and Kiro AI) that optimizes asset selection via a custom 12-filter methodology cross-referenced with daily Statmuse analytics — achieving an 88.9% historical hit rate. A TensorFlow regression model weighing variables such as travel and blowout-risk improved precision by a further 15%. The reporting layer applies all four analytics types: descriptive, diagnostic, predictive, and prescriptive.</p>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">TensorFlow</span>
-          <span class="tag">REST APIs</span><span class="tag">Data Analytics</span>
+          <span class="tag">REST APIs</span><span class="tag">Machine Learning</span><span class="tag">Generative AI</span>
         </div>
       </div>
       <figure class="shot">
@@ -310,10 +314,32 @@
       </figure>
     </article>
 
-    <!-- JE-005: Portfolio -->
+    <!-- JE-005: BDPA FI2L Pitch -->
     <article class="entry">
       <div class="entry-meta">
         <div class="entry-no">JE-005</div>
+        <div>2025</div>
+        <div>COMPETITION</div>
+      </div>
+      <div>
+        <h3>BDPA FI2L Pitch Competition | National Finalist</h3>
+        <p>Pitched a venture concept to a panel of industry professionals at the national BDPA (Black Data Processing Associates) conference, advancing a business case through the full development lifecycle under competition conditions.</p>
+        <p class="impact">Secured a 3rd-place national finish, sponsored by AWS.</p>
+        <div class="tags">
+          <span class="tag">Pitch</span><span class="tag">Business Development</span>
+          <span class="tag">Public Speaking</span><span class="tag">Venture Strategy</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/bdpa-pitch.jpg" alt="Mario accepting the 3rd place award on stage at the BDPA FI2L Pitch Competition">
+        <figcaption class="shot-caption">FIG 005 — BDPA FI2L Pitch Competition, 3rd place national</figcaption>
+      </figure>
+    </article>
+
+    <!-- JE-006: Portfolio -->
+    <article class="entry">
+      <div class="entry-meta">
+        <div class="entry-no">JE-006</div>
         <div>2026</div>
         <div>WEB DEV</div>
       </div>
@@ -341,14 +367,45 @@
     </div>
 
     <div class="xp">
-      <div class="xp-date">JAN 2026 — PRESENT</div>
+      <div class="xp-date">SEP 2026 — PRESENT</div>
       <div>
-        <h3>CoB Operations Intern</h3>
+        <h3>Student Google Gemini Ambassador</h3>
+        <div class="org">YMC Marketing · Prairie View, TX</div>
+        <ul>
+          <li>Managed logistics for a two-day campus activation, demonstrating new Gemini features — including its interactive visualization tools — to 500+ students.</li>
+          <li>Drove active registrations for the Gemini Student Pro plan through live, hands-on product demos.</li>
+        </ul>
+        <figure class="shot" style="margin-top:16px;max-width:420px">
+          <div class="video-frame">
+            <video src="images/gemini-activation.mp4" poster="images/gemini-activation-poster.jpg"
+                   autoplay loop muted playsinline
+                   aria-label="Mario demonstrating Google Gemini's interactive visualization tools at a campus activation booth"></video>
+          </div>
+          <figcaption class="shot-caption">LIVE — Gemini campus activation · demoing interactive visualizations</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">SEP 2026 — PRESENT</div>
+      <div>
+        <h3>IT Support Specialist</h3>
+        <div class="org">PVAMU Center for IT Excellence (CITE) · Prairie View, TX</div>
+        <ul>
+          <li>Optimized library IT operations and workflow efficiency by managing technical support requests and minimizing downtime across campus infrastructure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-date">JAN 2026 — AUG 2026</div>
+      <div>
+        <h3>IT Operations Intern</h3>
         <div class="org">PVAMU College of Business · Prairie View, TX</div>
         <ul>
           <li>Surfaced a campus-wide event visibility gap by scraping the school's event site with Python, then led the SharePoint &amp; Teams hub rollout that closed it (see JE-001).</li>
+          <li>Maintained college-wide technical operations by executing software updates across all computer systems and resolving hardware issues for desktop terminals, projectors, and 3D printers.</li>
           <li>Configured secure access provisioning and administered systems access for student leadership.</li>
-          <li>Provide hands-on IT support across College of Business facilities, including classroom AV verification, hardware repair and testing, software deployment, and endpoint readiness.</li>
         </ul>
       </div>
     </div>
@@ -371,7 +428,7 @@
         <div class="org">Jones &amp; Jones Strategic Consulting · Frisco, TX</div>
         <ul>
           <li>Attained 100% audit-readiness across consulting engagements by managing complex financial records and maintaining regulatory and compliance standards.</li>
-          <li>Reduced annual tax-reporting turnaround from 3 days to under 4 hours by architecting custom Excel models using artificial intellegence that automated data reconciliation and compliance reporting.</li>
+          <li>Reduced annual tax-reporting turnaround from 3 days to under 4 hours by architecting custom Excel models that automated data reconciliation and compliance reporting.</li>
         </ul>
       </div>
     </div>
@@ -382,11 +439,10 @@
         <h3>Campus Leadership</h3>
         <div class="org">Prairie View A&amp;M University</div>
         <ul>
-          <li>President, Beta Alpha Psi — leading the honors organization for accounting, finance, and information systems students.</li>
-          <li>Director of IT, PVAMU Strategy Group.</li>
-          <li>Co-Chaplain, The B.E.A.U.X. of Prairie View.</li>
-            <li>Member, Dean's Student Advisory Council.</li>
-          <li>Active in AIS, NSBE, ColorStack, Scholars of Finance, and NSLS.</li>
+          <li><strong>President, Beta Alpha Psi</strong> — drove a 60% increase in active membership to achieve Silver designation, built a mentorship track for underclassmen, and secured leaders from 20+ companies for professional-development engagements.</li>
+          <li><strong>Director of IT, PVAMU Strategy Group</strong> — consulted with student entrepreneurs alongside CoB senators, engineering an MVP solution and securing $5,000 in AWS funding for continued development.</li>
+          <li><strong>Council Member, Dean's Student Advisory Council</strong> · <strong>Membership Chair, BDPA</strong> · <strong>Co-Chaplain, The B.E.A.U.X. of Prairie View.</strong></li>
+          <li>Active in NSN, NSBE, ColorStack, Scholars of Finance, AMA, and the PVAMU Banking Program.</li>
         </ul>
       </div>
     </div>
@@ -411,7 +467,7 @@
       </div>
       <div class="skill-col">
         <h3>Platforms &amp; Tools</h3>
-        <ul><li>Microsoft 365 &amp; SharePoint</li><li>Teams</li><li>Git &amp; GitHub</li><li>Firebase</li><li>Google Cloud</li></ul>
+        <ul><li>Microsoft 365 &amp; SharePoint</li><li>Teams</li><li>Git &amp; GitHub · VS Code</li><li>Firebase</li><li>Google Analytics</li></ul>
       </div>
       <div class="skill-col">
         <h3>Business &amp; Concepts</h3>
@@ -444,6 +500,14 @@
       <figure class="shot">
         <img src="images/true-digital-marketing.jpg" alt="Mario at the True Digital Marketing C.A.S.E. Competition final presentation">
         <figcaption class="shot-caption">EXHIBIT D — True Digital Marketing C.A.S.E. Competition '25 · Business development lifecycle, venture pitch to industry professionals</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/nsn-conference.jpg" alt="Mario with the Prairie View A&amp;M College of Business delegation at the National Sales Network Conference in Atlanta">
+        <figcaption class="shot-caption">EXHIBIT E — National Sales Network Conference '25 · Represented PVAMU's College of Business in Atlanta</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/beaux-panthercamp.jpg" alt="Mario speaking at a podium to incoming freshmen during Panther Camp orientation with The B.E.A.U.X. of Prairie View">
+        <figcaption class="shot-caption">EXHIBIT F — Panther Camp (Orientation Week) · Spoke to incoming freshmen with The B.E.A.U.X. on professionalism and self-presentation</figcaption>
       </figure>
     </div>
   </div>
