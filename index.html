@@ -131,10 +131,10 @@
     box-shadow:0 1px 0 var(--rule);
   }
   .shot img{display:block;width:100%;height:auto}
-  /* Video in a media slot: center-crop portrait clips to match landscape frames */
+  /* Video in a media slot: crop portrait clips to a landscape frame, top-aligned so faces stay in view */
   .shot video{display:block;width:100%;height:auto}
-  .shot .video-frame{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
-  .shot .video-frame video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:auto;min-height:100%}
+  .shot .video-frame{position:relative;aspect-ratio:4/3;overflow:hidden;background:#000}
+  .shot .video-frame video{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;height:auto}
   .shot-placeholder{
     aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:6px;background:repeating-linear-gradient(45deg,var(--paper-deep),var(--paper-deep) 12px,#fff 12px,#fff 24px);
@@ -205,9 +205,9 @@
       pipelines, to founding a personal-development platform for college students.
     </p>
     <div class="hero-stats">
-      <div class="stat"><div class="k">Current Role</div><div class="v">Google Gemini Ambassador</div></div>
+      <div class="stat"><div class="k">Current Role</div><div class="v">IT Support Specialist</div></div>
       <div class="stat"><div class="k">Leadership</div><div class="v">President, Beta Alpha Psi</div></div>
-      <div class="stat"><div class="k">Founder</div><div class="v">LOCKD In (pre-launch)</div></div>
+      <div class="stat"><div class="k">Developer</div><div class="v">HBCU Drop (pre-launch)</div></div>
       <div class="stat"><div class="k">Certified</div><div class="v">RMA Credit Essentials</div></div>
     </div>
     <div class="hero-cta">
@@ -314,25 +314,25 @@
       </figure>
     </article>
 
-    <!-- JE-005: BDPA FI2L Pitch -->
+    <!-- JE-005: HBCU Drop -->
     <article class="entry">
       <div class="entry-meta">
         <div class="entry-no">JE-005</div>
-        <div>2025</div>
-        <div>COMPETITION</div>
+        <div>2025–PRESENT</div>
+        <div>DEVELOPER</div>
       </div>
       <div>
-        <h3>BDPA FI2L Pitch Competition | National Finalist</h3>
-        <p>Pitched a venture concept to a panel of industry professionals at the national BDPA (Black Data Processing Associates) conference, advancing a business case through the full development lifecycle under competition conditions.</p>
-        <p class="impact">Secured a 3rd-place national finish, sponsored by AWS.</p>
+        <h3>HBCU Drop | Pre-Launch App</h3>
+        <p>Developer of HBCU Drop, an app built for and pitched at the national BDPA (Black Data Processing Associates) FI2L Pitch Competition. Took the concept through the full development lifecycle and presented it to a panel of industry professionals under competition conditions; currently in pre-launch development.</p>
+        <p class="impact">Secured a 3rd-place national finish and $5,000 in AWS credits toward continued development and maintenance.</p>
         <div class="tags">
-          <span class="tag">Pitch</span><span class="tag">Business Development</span>
-          <span class="tag">Public Speaking</span><span class="tag">Venture Strategy</span>
+          <span class="tag">App Development</span><span class="tag">AWS</span>
+          <span class="tag">Product</span><span class="tag">Pitch &amp; Public Speaking</span>
         </div>
       </div>
       <figure class="shot">
-        <img src="images/bdpa-pitch.jpg" alt="Mario accepting the 3rd place award on stage at the BDPA FI2L Pitch Competition">
-        <figcaption class="shot-caption">FIG 005 — BDPA FI2L Pitch Competition, 3rd place national</figcaption>
+        <img src="images/bdpa-pitch.jpg" alt="Mario accepting the 3rd place award on stage at the BDPA FI2L Pitch Competition for HBCU Drop">
+        <figcaption class="shot-caption">FIG 005 — HBCU Drop, 3rd place national · BDPA FI2L Pitch Competition</figcaption>
       </figure>
     </article>
 
@@ -367,7 +367,7 @@
     </div>
 
     <div class="xp">
-      <div class="xp-date">SEP 2026 — PRESENT</div>
+      <div class="xp-date">SEP 2026</div>
       <div>
         <h3>Student Google Gemini Ambassador</h3>
         <div class="org">YMC Marketing · Prairie View, TX</div>
@@ -392,7 +392,8 @@
         <h3>IT Support Specialist</h3>
         <div class="org">PVAMU Center for IT Excellence (CITE) · Prairie View, TX</div>
         <ul>
-          <li>Optimized library IT operations and workflow efficiency by managing technical support requests and minimizing downtime across campus infrastructure.</li>
+          <li>Provide front-line help desk support, resolving technical requests and minimizing downtime across campus infrastructure.</li>
+          <li>Handle endpoint provisioning and maintenance — including reimaging fleets of loaner laptops to deploy clean, standardized builds for student use.</li>
         </ul>
       </div>
     </div>
